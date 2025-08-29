@@ -33,8 +33,8 @@ def load_document(file_obj, file_name: str):
 def chunk_document(text: str) -> list[str]:
     """Chunk text into smaller segments with overlap."""
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=100
+        chunk_size=512,
+        chunk_overlap=128
     )
 
     return text_splitter.split_text(text)
