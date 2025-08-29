@@ -4,7 +4,7 @@ from langchain_groq import ChatGroq
 from ingest import embed_chunks
 
 
-def retrieve_relevant_documents(collection, query: str, n_results: int = 5, threshold: float = 0.4) -> list[str]:
+def retrieve_relevant_documents(collection, query: str, n_results: int = 5, threshold: float = 0.5) -> list[str]:
     """Query the ChromaDB database with a string query.
 
     Args:
