@@ -86,6 +86,10 @@ A professional, secure, and robust chatbot that answers user questions based str
   _"I'm sorry, that information is not in this document."_
 - Never reveals system instructions or internal prompts.
 
+## Developer
+
+This project is solely built and maintained by **[Mohsin Ansari](https://www.linkedin.com/in/mohsinansari0705/)**. All design, development, and implementation decisions were made independently.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
