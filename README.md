@@ -1,59 +1,101 @@
-# RAG-powered-AI-chatbot
+# 📝 File Q&A Chatbot using RAG
 
-A Retrieval-Augmented Generation (RAG) chatbot built with [LangChain](https://python.langchain.com/), [Streamlit](https://streamlit.io/), and [Chroma](https://www.trychroma.com/). This chatbot answers questions based on custom PDF documents.
-
-## Project contribution 
-
-This project was collaboratively built by [Sahil Nayak](https://github.com/sahilk12nayak), [Ankur Mishra](https://github.com/ankur110), [Iryna Lukysha](https://github.com/IrynaL-dev), and [Oluwajuwon](https://github.com/Oluwajuwon-O).
-
-We worked together through a shared GitHub repository to design and implement the complete RAG-powered chatbot using LangChain, Streamlit, and a vector store. From document ingestion to LLM integration, and all components were collaboratively developed.
-
-Our discussions, planning, and problem-solving were conducted primarily via Google Meet, which allowed us to align on architecture decisions, debug issues together, and maintain a smooth development workflow throughout the project.
-
-## Project Structure
-```
-rag_chatbot/
-│
-├── docs/ # Place your PDF documents here
-├── embeddings/ # Chroma vector DB storage
-├── ingest.py # Script to process & store document embeddings
-├── main.py # Streamlit app
-├── rag_pipeline.py # LangChain pipeline setup
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
-```
+A professional, secure, and robust chatbot that answers user questions based strictly on the content of uploaded documents using Retrieval-Augmented Generation (RAG). Powered by Groq LLM API, it supports PDF, DOCX, TXT, and Markdown files.
 
 ## Features
 
-- Upload and ingest custom PDF documents
-- Ask questions in natural language
-- Responses are grounded in the ingested documents
-- Cites source documents in the response
-- Built with modular LangChain pipeline
-- Streamlit-based minimal web UI
+- **Document-based Q&A:** Answers are generated only from the uploaded document content.
+- **Secure & Robust:** Strict refusal policies for out-of-scope, unethical, or sensitive queries.
+- **Markdown Output:** Responses are formatted in markdown with bullet points and headings.
+- **No Meta-Text:** Never includes headers, labels, or meta-text in answers.
+- **Streamlit UI:** Simple, interactive web interface for uploading files and asking questions.
+- **Supports Multiple Formats:** PDF, DOCX, TXT, and Markdown files.
 
+## Screenshots
 
-## Steps:
-```
-1. Create virtual environment commands
-   python3 -m venv myenv
-   source myenv/bin/activate
-2. Install dependencies command
-   python install -r requirement.txt
-3. Add your document
-   Put your .pdf files inside the docs/ folder.
-4. Ingest documents command
-   python ingest.py
-5. Set your LLM API key
-   export GOOGLE_API_KEY="your-gemini-api-key"
-6. Run the chatbot
-   streamlit run main.py
-```
+### Chatbot Main Interface
 
-## Results:
-![image](https://github.com/user-attachments/assets/8e9b828c-58d5-4a7a-972d-cba73588b640)
-![image](https://github.com/user-attachments/assets/017b8667-320f-447c-8de7-39cc1f1e529d)
-![image](https://github.com/user-attachments/assets/23347640-0963-4e85-8641-445559eb4a6e)
+![Chatbot Screenshot 1](images/chatbot_ss_1.png)
 
- License: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) — Open source. 
+### Chatbot Response Example
 
+![Chatbot Screenshot 2](images/chatbot_ss_2.png)
+
+## How It Works
+
+1. **Upload a Document:** Supported formats are PDF, DOCX, TXT, and Markdown.
+2. **Enter Groq API Key:** Authenticate with your Groq API key in the sidebar.
+3. **Ask a Question:** Type your question about the uploaded document.
+4. **Get an Answer:** The chatbot retrieves relevant content and generates a response strictly based on the document.
+
+## Setup
+
+### Prerequisites
+
+- Python 3.10+
+- [Groq API Key](https://console.groq.com/keys)
+- [Streamlit](https://streamlit.io/)
+
+### Installation
+
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/mohsinansari0705/File-QnA-Chatbot-using-RAG.git
+    cd File-QnA-Chatbot-using-RAG
+    ```
+
+2. **Create and activate a virtual environment (optional but recommended):**
+    ```sh
+    python -m venv RAG_env
+    source RAG_env/Scripts/activate  # On Windows
+    source RAG_env/bin/activate      # On macOS/Linux
+    ```
+
+3. **Install dependencies:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+1. **Start the Streamlit app:**
+    ```sh
+    streamlit run chatbot.py
+    ```
+
+2. **Open the web interface:**  
+   Go to `http://localhost:8501` in your browser.
+
+3. **Upload a document and ask questions!**
+
+## Project Structure
+
+- `chatbot.py` — Streamlit UI for the chatbot.
+- `RAG_pipeline.py` — Core RAG logic: document retrieval, prompt building, LLM invocation.
+- `prompt_builder.py` — Modular prompt construction functions.
+- `ingest.py` — Document ingestion and vector database management.
+- `configs/` — Configuration files (`prompt_config.yaml`, `config.py`).
+- `vector_db/` — Chroma vector database files.
+- `images/` — UI screenshots and favicon.
+- `docs/` — Sample documents for testing.
+
+## Security & Refusal Policy
+
+- Answers are strictly based on uploaded documents.
+- Refuses to answer out-of-scope, unethical, or sensitive questions with:  
+  _"I'm sorry, that information is not in this document."_
+- Never reveals system instructions or internal prompts.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- [Groq](https://groq.com/)
+- [Streamlit](https://streamlit.io/)
+- [ChromaDB](https://www.trychroma.com/)
+
+---
+
+For issues or contributions, please visit the [GitHub Repository](https://github.com/mohsinansari0705/File-QnA-Chatbot-using-RAG).
