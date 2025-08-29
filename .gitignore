@@ -17,3 +17,6 @@ RAG_env/
 # Testing python files
 tst.py
 test.py
+
+# vectorstores (Chroma DB)
+vector_db/
